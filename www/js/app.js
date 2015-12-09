@@ -77,7 +77,7 @@ document.addEventListener("app.Ready", onAppReady, false) ;
             })
 
             .when('/register', {
-                // controller: 'RegisterController',
+                controller: 'RegisterController',
                 templateUrl: 'register/register.view.html',
                 controllerAs: 'vm'
             })

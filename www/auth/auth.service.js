@@ -23,8 +23,11 @@
             $http.post('http://tutorme-backend.herokuapp.com/tutor_api/api-token-auth/', { username: username, password: password })
                .then(function (response) {
                    // alert(response.status);
-                   // console.log(response.data.token);
-                   callback(response);
+                   console.log(response.data.token);
+                   console.log(response.data)
+                   callback(response);                   
+                   localStorage.setItem('username', username)
+                   localStorage.setItem('token', response.data.token)
                },
                function(response) {
                 // alert(response.data)
@@ -35,14 +38,7 @@
         }
 
         function SetCredentials(username, password) {
-            var authdata = Base64.encode(username + ':' + password);
-
-            $rootScope.globals = {
-                currentUser: {
-                    username: username,
-                    authdata: authdata
-                }
-            };
+            var authdata = localStorage.token
 
             $http.defaults.headers.common['Authorization'] = 'Token ' + authdata; // jshint ignore:line
             $cookieStore.put('globals', $rootScope.globals);
