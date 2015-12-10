@@ -3,8 +3,8 @@
 		<ul class="collection">
 			<a ng-repeat="u in users | orderBy: 'name'" ng-href="#/user_profile/{{u.username}}" class="collection-item avatar">
 				<img src="https://placeimg.com/640/480/people" alt="" class="circle">
-				<span class="title">{{u.first_name}} {{u.last_name}} </span>
-				<p>Username: {{u.username}}</p>
+				<span class="title black-text">{{u.first_name}} {{u.last_name}} </span>
+				<p class = "black-text">Username: {{u.username}}</p>
 			</a>
 		</ul>
 	</div>
