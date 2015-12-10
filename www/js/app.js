@@ -82,11 +82,18 @@ document.addEventListener("app.Ready", onAppReady, false) ;
                 controllerAs: 'vm'
             })
 
-             .when('/users', {
+            .when('/users', {
                 controller: 'UserController',
                 templateUrl: 'users/users.view.html',
                 controllerAs: 'vm'
             })
+
+            .when('/users/:userId', {
+                controller: 'UserIdController',
+                templateUrl: 'users/usersId.view.html',
+                controllerAs: 'vm'
+            })
+
 
             .otherwise({ redirectTo: '/' });
     }
@@ -95,7 +102,8 @@ document.addEventListener("app.Ready", onAppReady, false) ;
     function run($rootScope, $location, $cookieStore, $http) {
         // keep user logged in after page refresh
         if (!localStorage.token) {
-            $location.path('/users');
+            console.log("HERE");
+            $location.path('/login');
             return;
         }
         $rootScope.globals = $cookieStore.get('globals') || {};
@@ -107,7 +115,14 @@ document.addEventListener("app.Ready", onAppReady, false) ;
             // redirect to login page if not logged in and trying to access a restricted page
             var restrictedPage = $.inArray($location.path(), ['/login', '/register', '/users']) === -1;
             var loggedIn = $rootScope.globals.currentUser;
-            if (restrictedPage && !loggedIn) {
+            // if (restrictedPage && !loggedIn) {
+            //     $location.path('/users');
+            // }
+            if(!localStorage.token){
+                console.log("no token");
+                $location.path('/login');
+            } else {
+                console.log("have token");
                 $location.path('/users');
             }
         });
