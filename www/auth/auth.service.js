@@ -26,8 +26,8 @@
                    console.log(response.data.token);
                    console.log(response.data)
                    callback(response);                   
-                   localStorage.setItem('username', username)
-                   localStorage.setItem('token', response.data.token)
+                   localStorage.setItem('username', username);
+                   localStorage.setItem('token', response.data.token);
                },
                function(response) {
                 // alert(response.data)
@@ -40,14 +40,14 @@
         function SetCredentials(username, password) {
             var authdata = localStorage.token
 
-            $http.defaults.headers.common['Authorization'] = 'Token ' + authdata; // jshint ignore:line
+            // $http.defaults.headers.common['Authorization'] = 'Token ' + localStorage.token; // jshint ignore:line
             $cookieStore.put('globals', $rootScope.globals);
         }
 
         function ClearCredentials() {
             $rootScope.globals = {};
             $cookieStore.remove('globals');
-            $http.defaults.headers.common.Authorization = 'Basic ';
+            // $http.defaults.headers.common.Authorization = 'Token ';
         }
     }
 
