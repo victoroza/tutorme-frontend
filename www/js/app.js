@@ -94,8 +94,14 @@ document.addEventListener("app.Ready", onAppReady, false) ;
                 controllerAs: 'vm'
             })
 
+            .when('/schools', {
+                controller: 'SchoolController',
+                templateUrl: 'school/school.view.html',
+                controllerAs: 'vm'
+            })
 
-            .otherwise({ redirectTo: '/' });
+
+            .otherwise({ redirectTo: '/login' });
     }
 
     run.$inject = ['$rootScope', '$location', '$cookieStore', '$http'];
@@ -108,22 +114,28 @@ document.addEventListener("app.Ready", onAppReady, false) ;
         }
         $rootScope.globals = $cookieStore.get('globals') || {};
         if ($rootScope.globals.currentUser) {
-            $http.defaults.headers.common['Authorization'] = 'Token ' + $rootScope.globals.currentUser.authdata; // jshint ignore:line
+            // $http.defaults.headers.common['Authorization'] = 'Token ' + $localStorage.token; // jshint ignore:line
         }
 
         $rootScope.$on('$locationChangeStart', function (event, next, current) {
             // redirect to login page if not logged in and trying to access a restricted page
-            var restrictedPage = $.inArray($location.path(), ['/login', '/register', '/users', '/user_profile/:userId']) === -1;
-            var loggedIn = $rootScope.globals.currentUser;
-            // if (restrictedPage && !loggedIn) {
-            //     $location.path('/users');
+            var restrictedPage = $.inArray($location.path(), ['/login','/register']) === -1;
+            // var loggedIn = ;
+            // localStorage.setItem('startUp', true);
+            // if (localStorage.token != null && restrictedPage) {
+            //     console.log($location.path());
+            //     // $location.path('/users');
+            //     // localStorage.startUp = false;
+            //     // $http.defaults.headers.common['Authorization'] = 'Token ' + $localStorage.token;
+            // } else {
+            //     $location.path('/login');
             // }
             if(!localStorage.token){
                 console.log("no token");
                 $location.path('/login');
             } else {
                 console.log("have token");
-                $location.path('/users');
+                // $location.path('/users');
             }
         });
     }
