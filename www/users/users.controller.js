@@ -27,7 +27,7 @@
     UserController.$inject = ['$location', 'AuthenticationService', '$scope', '$http'];
     function UserController($location, AuthenticationService, $scope, $http) {
         var vm = this;
-
+        console.log("getting user profiles");
         (function initController() {
             $http.get('http://tutorme-backend.herokuapp.com/tutor_api/users/?format=json').then(function(data) {
                 $scope.users = data.data;

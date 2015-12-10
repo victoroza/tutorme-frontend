@@ -88,9 +88,9 @@ document.addEventListener("app.Ready", onAppReady, false) ;
                 controllerAs: 'vm'
             })
 
-            .when('/users/:userId', {
+            .when('/user_profile/:userId', {
                 controller: 'UserIdController',
-                templateUrl: 'users/usersId.view.html',
+                templateUrl: 'user_profile/userId.view.html',
                 controllerAs: 'vm'
             })
 
@@ -113,7 +113,7 @@ document.addEventListener("app.Ready", onAppReady, false) ;
 
         $rootScope.$on('$locationChangeStart', function (event, next, current) {
             // redirect to login page if not logged in and trying to access a restricted page
-            var restrictedPage = $.inArray($location.path(), ['/login', '/register', '/users']) === -1;
+            var restrictedPage = $.inArray($location.path(), ['/login', '/register', '/users', '/user_profile/:userId']) === -1;
             var loggedIn = $rootScope.globals.currentUser;
             // if (restrictedPage && !loggedIn) {
             //     $location.path('/users');
