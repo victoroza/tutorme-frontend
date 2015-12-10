@@ -30,12 +30,12 @@
                 username: vm.username
             })
                 .then(function(response) {
-                    alert(response.status);
+                    // alert(response.status);
                     console.log(response);
                     console.log(response.data);
                 },
                 function(response) {
-                    alert(response.status);
+                    // alert(response.status);
                 });
         };
     }
