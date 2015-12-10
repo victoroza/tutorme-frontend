@@ -1,12 +1,11 @@
 <div>
 	<h3 class="center-align">User List</h3>
-		<u1 class="collection">
+		<ul class="collection">
 			<a ng-repeat="u in users | orderBy: 'name'" href="#!" class="collection-item avatar">
 				<img src="https://placeimg.com/640/480/people" alt="" class="circle">
 				<span class="title">{{u.first_name}} {{u.last_name}} </span>
-				<p>Username: {{u.username}}
-				</p>
+				<p>Username: {{u.username}}</p>
 			</a>
-		</u1>
+		</ul>
 	</div>
 </div>
