@@ -26,22 +26,9 @@ function AuthenticationService($http, $cookieStore, $rootScope, $timeout, $q) {
 				console.log(response.data.token);
 				console.log(response.data)
 				callback(response);                   
-				localStorage.setItem('username', username);
-				localStorage.setItem('token', response.data.token);
+			localStorage.setItem('username', username);
+			localStorage.setItem('token', response.data.token);
 			},
-			/*
-			$http.get('http://tutorme-backend.herokuapp.com/tutor-api/users/' + localStorage.username + '?format=json')
-				.then(function(data) {
-					localStorage.setItem('first_name' data.first_name);
-					localStorage.setItem('last_name' data.last_name);
-					localStorage.setItem('is_staff' data.is_staff);
-					localStorage.setItem('is_active' data.is_active);
-					localStorage.setItem('is_superuser' data.is_superuser);
-					localStorage.setItem('email' data.email);
-					localStorage.setItem('phone' data.phone);
-					localStorage.setItem('password' data.password);
-				});
-			*/
 			function(response) {
 				// alert(response.data)
 				callback(response);
@@ -53,14 +40,14 @@ function AuthenticationService($http, $cookieStore, $rootScope, $timeout, $q) {
 	function SetCredentials(username, password) {
 		var authdata = localStorage.token
 
-			//$http.defaults.headers.common['Authorization'] = 'Token ' + authdata; // jshint ignore:line
+			// $http.defaults.headers.common['Authorization'] = 'Token ' + localStorage.token; // jshint ignore:line
 			$cookieStore.put('globals', $rootScope.globals);
 	}
 
 	function ClearCredentials() {
 		$rootScope.globals = {};
 		$cookieStore.remove('globals');
-		//$http.defaults.headers.common.Authorization = 'Basic ';
+		// $http.defaults.headers.common.Authorization = 'Token ';
 	}
 }
 
@@ -145,3 +132,5 @@ var Base64 = {
 		return output;
 	}
 };
+
+})();
