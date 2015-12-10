@@ -1,7 +1,7 @@
 <div class="col-md-12 col-md-offset-3">
 	<h3 class="center-align">Registration Form</h3>
 	<form name="form" ng-submit="vm.register()" role="form" class="col s12">
-		
+
 		<div class="input-field tooltipped" data-position="bottom" data-delay="50" data-tooltip="Required. 30 characters or fewer. Letters, digits and @/./+/-/_ only.">
 			<input id="username" type="text" class="validate" ng-model="vm.username" required>
 			<label for="username">Username</label>
@@ -34,12 +34,12 @@
 			<label for="phone">Telephone #</label>
 		</div> 
 		<div class="form-actions">
-            <div class="row">
-                <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn-large waves-effect waves-light green darken-4 col s12 align-center">Register
-                    <i class="material-icons right">send</i>
-                </button>
-            </div>
-        </div>
+			<div class="row">
+				<button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn-large waves-effect waves-light green darken-4 col s12 align-center">Register
+					<i class="material-icons right">send</i>
+				</button>
+			</div>
+		</div>
 
 
 		<!-- <div class="input-field col s6">
