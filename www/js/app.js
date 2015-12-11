@@ -100,6 +100,12 @@ document.addEventListener("app.Ready", onAppReady, false) ;
                 controllerAs: 'vm'
             })
 
+            .when('/classes/:schoolId', {
+                controller: 'ClassController',
+                templateUrl: 'class/class.view.html',
+                controllerAs: 'vm'
+            })
+
 
             .otherwise({ redirectTo: '/login' });
     }
