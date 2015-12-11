@@ -1,0 +1,14 @@
+div.nav-wrapper {
+	position: relative;
+}
+ul {
+	position: static;
+}
+ul.side-nav {
+	height: 100%;
+}
+ul.side-nav li:last-child {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
