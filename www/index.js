@@ -11,3 +11,6 @@ $('sideNav').on("hide", function(e){
 	var overlayParent = overlay.parentNode;
 	overlayParent.removeChild(overlay);
 });
+$('.logout-button').on('click', function(){
+	localStorage.clear();
+});
