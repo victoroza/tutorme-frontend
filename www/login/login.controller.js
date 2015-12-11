@@ -1,35 +1,34 @@
 (function () {
-    'use strict';
+	'use strict';
 
-    angular
-        .module('app')
-        .controller('LoginController', LoginController);
+	angular
+		.module('app')
+		.controller('LoginController', LoginController);
 
-    LoginController.$inject = ['$location', 'AuthenticationService'];
-    function LoginController($location, AuthenticationService) {
-        var vm = this;
+	LoginController.$inject = ['$location', 'AuthenticationService'];
+	function LoginController($location, AuthenticationService) {
+		var vm = this;
 
-        vm.login = login;
+		vm.login = login;
 
-        (function initController() {
-            // reset login status
-            AuthenticationService.ClearCredentials();
-        })();
+		(function initController() {
+			// reset login status
+			AuthenticationService.ClearCredentials();
+		})();
 
-        function login() {
-            vm.dataLoading = true;
-            AuthenticationService.Login(vm.username, vm.password, function (response) {
-                if (response.status==200) {
-                    AuthenticationService.SetCredentials(vm.username, vm.password);
-                    $location.path('/users');
-                } else {
-                    console.log(response);
-                    // FlashService.Error(response.message);
-                    vm.dataLoading = false;
-                    $location.path('/login');
-                }
-            });
-        };
-    }
-
+		function login() {
+			vm.dataLoading = true;
+			AuthenticationService.Login(vm.username, vm.password, function (response) {
+				if (response.status==200) {
+					AuthenticationService.SetCredentials(vm.username, vm.password);
+					$location.path('/users');
+				} else {
+					console.log(response);
+					// FlashService.Error(response.message);
+					vm.dataLoading = false;
+					$location.path('/login');
+				}
+			});
+		};
+	}
 })();
