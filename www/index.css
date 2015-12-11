@@ -6,7 +6,6 @@ ul {
 }
 ul.side-nav {
 	height: 100%;
-	visibility.hidden;
 }
 ul.side-nav li:last-child {
 	position: absolute;
