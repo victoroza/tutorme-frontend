@@ -101,8 +101,8 @@ document.addEventListener("app.Ready", onAppReady, false) ;
             })
 
             .when('/classes/:schoolId', {
-                controller: 'SchoolController',
-                templateUrl: 'school/school.view.html',
+                controller: 'ClassController',
+                templateUrl: 'class/class.view.html',
                 controllerAs: 'vm'
             })
 

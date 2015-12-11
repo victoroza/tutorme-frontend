@@ -2,7 +2,7 @@
 	<h3 class="center-align">School List</h3>
 	<h5>Please select the school you are in:</h5>
 		<ul class="collection">
-			<a ng-repeat="s in schools | orderBy: 'number'" ng-href="#/register" class="collection-item avatar">
+			<a ng-repeat="s in schools | orderBy: 'name'" ng-href="#/classes/{{s.name}}" class="collection-item avatar">
 				<img src="http://content.sportslogos.net/logos/30/855/full/hidblvd6ghdf4qkqanjth60rf.gif" alt="" class="circle">
 				<span class="title">{{s.name}}</span>
 				<p>Zip Code: {{s.zipCode}}</p>
