@@ -25,31 +25,33 @@ function AuthenticationService($http, $cookieStore, $rootScope, $timeout, $q) {
 				console.log(response.data.token);
 				console.log(response.data)
 				callback(response);                   
-			localStorage.setItem('username', username);
-			localStorage.setItem('token', response.data.token);
+				localStorage.setItem('username', username);
+				localStorage.setItem('token', response.data.token);
+				setUserInfo();
 			},
 			function(response) {
 				// alert(response.data)
 				callback(response);
 				deferred.reject(response.data.error);
 			});
-		setUserInfo();
 	}
-
+	
 	function setUserInfo() {
-		$http.get('http://tutorme-backend.herokuapp.com/tutor-api/users/' + localStorage.username + '?format=json')
-			.then(function(data) {
-				localStorage.setItem('first_name' data.first_name);
-				localStorage.setItem('last_name' data.last_name);
-				localStorage.setItem('is_staff' data.is_staff);
-				localStorage.setItem('is_active' data.is_active);
-				localStorage.setItem('is_superuser' data.is_superuser);
-				localStorage.setItem('email' data.email);
-				localStorage.setItem('phone' data.phone);
-				localStorage.setItem('password' data.password);
-			});
+		if(localStorage.username && localStorage.token) {
+			$http.get('http://tutorme-backend.herokuapp.com/tutor_api/users/' + localStorage.username + '/?format=json')
+				.then(function(response) {
+					localStorage.setItem('first_name', response.data.first_name);
+					localStorage.setItem('last_name', response.data.last_name);
+					localStorage.setItem('is_staff', response.data.is_staff);
+					localStorage.setItem('is_active', response.data.is_active);
+					localStorage.setItem('is_superuser', response.data.is_superuser);
+					localStorage.setItem('email', response.data.email);
+					localStorage.setItem('phone', response.data.phone);
+					localStorage.setItem('password', response.data.password);
+				});
+		}
 	}
-
+	
 	function SetCredentials(username, password) {
 		var authdata = localStorage.token
 
