@@ -65,7 +65,7 @@ document.addEventListener("app.Ready", onAppReady, false) ;
     function config($routeProvider, $locationProvider) {
         $routeProvider
             .when('/', {
-                controller: 'HomeController',
+                // controller: 'HomeController',
                 templateUrl: 'home/home.view.html',
                 controllerAs: 'vm'
             })
