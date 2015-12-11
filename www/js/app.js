@@ -100,6 +100,12 @@ document.addEventListener("app.Ready", onAppReady, false) ;
                 controllerAs: 'vm'
             })
 
+            .when('/classes/:schoolId', {
+                controller: 'ClassController',
+                templateUrl: 'class/class.view.html',
+                controllerAs: 'vm'
+            })
+
 
             .otherwise({ redirectTo: '/login' });
     }
@@ -109,7 +115,7 @@ document.addEventListener("app.Ready", onAppReady, false) ;
         // keep user logged in after page refresh
         if (!localStorage.token) {
             console.log("HERE");
-            $location.path('/login');
+            $location.path('/');
             return;
         }
         $rootScope.globals = $cookieStore.get('globals') || {};
@@ -132,7 +138,7 @@ document.addEventListener("app.Ready", onAppReady, false) ;
             // }
             if(!localStorage.token){
                 console.log("no token");
-                $location.path('/login');
+                $location.path('/');
             } else {
                 console.log("have token");
                 // $location.path('/users');
