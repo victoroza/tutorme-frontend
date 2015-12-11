@@ -17,7 +17,6 @@ function AuthenticationService($http, $cookieStore, $rootScope, $timeout, $q) {
 
 	function Login(username, password, callback) {
 		var deferred = $q.defer();
-
 		/* Use this for real authentication
 			----------------------------------------------*/
 		$http.post('http://tutorme-backend.herokuapp.com/tutor_api/api-token-auth/', { username: username, password: password })
@@ -34,7 +33,21 @@ function AuthenticationService($http, $cookieStore, $rootScope, $timeout, $q) {
 				callback(response);
 				deferred.reject(response.data.error);
 			});
+		setUserInfo();
+	}
 
+	function setUserInfo() {
+		$http.get('http://tutorme-backend.herokuapp.com/tutor-api/users/' + localStorage.username + '?format=json')
+			.then(function(data) {
+				localStorage.setItem('first_name' data.first_name);
+				localStorage.setItem('last_name' data.last_name);
+				localStorage.setItem('is_staff' data.is_staff);
+				localStorage.setItem('is_active' data.is_active);
+				localStorage.setItem('is_superuser' data.is_superuser);
+				localStorage.setItem('email' data.email);
+				localStorage.setItem('phone' data.phone);
+				localStorage.setItem('password' data.password);
+			});
 	}
 
 	function SetCredentials(username, password) {
