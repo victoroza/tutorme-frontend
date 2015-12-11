@@ -107,6 +107,12 @@ document.addEventListener("app.Ready", onAppReady, false) ;
             })
 
 
+            .when('/appointment', {
+                controller: 'AppointmentController',
+                templateUrl: 'appointment/appointment.view.html',
+                controllerAs: 'vm'
+            })
+
             .otherwise({ redirectTo: '/login' });
     }
 
