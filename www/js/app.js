@@ -124,6 +124,7 @@ document.addEventListener("app.Ready", onAppReady, false) ;
             $location.path('/');
             return;
         }
+		  /*
         $rootScope.globals = $cookieStore.get('globals') || {};
         if ($rootScope.globals.currentUser) {
             // $http.defaults.headers.common['Authorization'] = 'Token ' + $localStorage.token; // jshint ignore:line
@@ -150,6 +151,7 @@ document.addEventListener("app.Ready", onAppReady, false) ;
                 // $location.path('/users');
             }
         });
+		  */
     }
 
 })();
