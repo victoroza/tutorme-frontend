@@ -33,7 +33,7 @@ function AuthenticationService($http, $cookieStore, $rootScope, $timeout, $q) {
 				// alert(response.data)
 				callback(response);
 				deferred.reject(response.data.error);
-		});
+			});
 	}
 	
 	function setUserInfo() {
