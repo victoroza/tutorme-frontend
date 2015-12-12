@@ -63,7 +63,7 @@ document.addEventListener("app.Ready", onAppReady, false) ;
 
     config.$inject = ['$routeProvider', '$locationProvider'];
     function config($routeProvider, $locationProvider) {
-        $routeProvider
+      $routeProvider
             .when('/', {
                 // controller: 'HomeController',
                 templateUrl: 'home/home.view.html',
@@ -106,6 +106,11 @@ document.addEventListener("app.Ready", onAppReady, false) ;
                 controllerAs: 'vm'
             })
 
+            .when('/user_profile_edit/:userId', {
+                controller: 'EditProfileController',
+                templateUrl: 'user_profile_edit/editProfile.view.html',
+                controllerAs: 'vm'
+            })
 
             .when('/appointment', {
                 controller: 'AppointmentController',

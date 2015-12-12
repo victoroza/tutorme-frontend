@@ -33,6 +33,7 @@
                     // alert(response.status);
                     console.log(response);
                     console.log(response.data);
+                    $location.path('/login');
                 },
                 function(response) {
                     // alert(response.status);
