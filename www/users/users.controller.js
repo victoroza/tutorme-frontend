@@ -26,6 +26,3 @@
     }
 
 })();
-$('fixed-action-btn').on("click", function(e){
-
-})

@@ -1,10 +1,9 @@
 <div>
-
 	  <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
 	    <a class="btn-floating btn-large red">
 	      <i class="large material-icons">mode_edit</i>
 	    </a>
-	  </div
+	  </div>
 		<ul class="collection">
 			<a ng-repeat="u in users | orderBy: 'name'" ng-href="#/user_profile/{{u.username}}" class="collection-item avatar">
 				<img src="https://placeimg.com/640/480/people" alt="" class="circle">
@@ -13,4 +12,14 @@
 			</a>
 		</ul>
 	</div>
+	<!-- Modal Trigger -->
+<a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+
+<!-- Modal Structure -->
+<div id="modal1" class="modal">
+	<div class="modal-content">
+		<h4>Modal Header</h4>
+		<p>A bunch of text</p>
+	</div>
+</div>
 </div>
