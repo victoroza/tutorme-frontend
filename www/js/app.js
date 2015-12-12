@@ -89,9 +89,14 @@ document.addEventListener("app.Ready", onAppReady, false) ;
             })
 
             .when('/user_profile/:userId', {
-                controller: 'UserIdController',
-                templateUrl: 'user_profile/userId.view.html',
-                controllerAs: 'vm'
+                templateUrl:function(params){
+                  if(params.userId == localStorage.username || localStorage.is_superuser == "true"){
+                    console.log("Admin app.js");
+                    return 'user_profile/editProfile.view.html'
+                  }else{
+                    return 'user_profile/userId.view.html'
+                  }
+                },
             })
 
             .when('/schools', {
@@ -106,11 +111,11 @@ document.addEventListener("app.Ready", onAppReady, false) ;
                 controllerAs: 'vm'
             })
 
-            .when('/user_profile_edit/:userId', {
-                controller: 'EditProfileController',
-                templateUrl: 'user_profile_edit/editProfile.view.html',
-                controllerAs: 'vm'
-            })
+            // .when('/user_profile_edit/:userId', {
+            //     controller: 'EditProfileController',
+            //     templateUrl: 'user_profile_edit/editProfile.view.html',
+            //     controllerAs: 'vm'
+            // })
 
             .when('/appointment', {
                 controller: 'AppointmentController',
