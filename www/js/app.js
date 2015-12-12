@@ -90,9 +90,12 @@ document.addEventListener("app.Ready", onAppReady, false) ;
 
             .when('/user_profile/:userId', {
                 templateUrl:function(params){
-                  if(params.userId == localStorage.username || localStorage.is_superuser == "true"){
-                    console.log("Admin app.js");
+                  if(params.userId == localStorage.username){
+                    console.log("Own profile");
                     return 'user_profile/editProfile.view.html'
+                  }else if(localStorage.is_superuser == "true"){
+                    console.log("Admin app.js");
+                    return 'user_profile/adminEditProfile.view.html'
                   }else{
                     return 'user_profile/userId.view.html'
                   }
@@ -134,32 +137,5 @@ document.addEventListener("app.Ready", onAppReady, false) ;
             $location.path('/');
             return;
         }
-        $rootScope.globals = $cookieStore.get('globals') || {};
-        if ($rootScope.globals.currentUser) {
-            // $http.defaults.headers.common['Authorization'] = 'Token ' + $localStorage.token; // jshint ignore:line
-        }
-
-        $rootScope.$on('$locationChangeStart', function (event, next, current) {
-            // redirect to login page if not logged in and trying to access a restricted page
-            var restrictedPage = $.inArray($location.path(), ['/login','/register']) === -1;
-            // var loggedIn = ;
-            // localStorage.setItem('startUp', true);
-            // if (localStorage.token != null && restrictedPage) {
-            //     console.log($location.path());
-            //     // $location.path('/users');
-            //     // localStorage.startUp = false;
-            //     // $http.defaults.headers.common['Authorization'] = 'Token ' + $localStorage.token;
-            // } else {
-            //     $location.path('/login');
-            // }
-            if(!localStorage.token){
-                console.log("no token");
-                $location.path('/');
-            } else {
-                console.log("have token");
-                // $location.path('/users');
-            }
-        });
     }
-
 })();

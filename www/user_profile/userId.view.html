@@ -1,13 +1,14 @@
 <div ng-controller = "UserIdController as vm">
 	<!-- <h2 class="center-align">User List</h2> -->
+	<h4>{{user.first_name}} {{user.last_name}}</h4>
+	<img ng-src="{{user.picture}}">
 	<ul class="collection with-header">
 		<li class="collection-header">
 <!-- 		<img src="https://upload.wikimedia.org/wikipedia/en/7/70/Shawn_Tok_Profile.jpg" height="42" width="42" alt="" class="circle"> -->
-		<h4>{{user.first_name}} {{user.last_name}}</h4>
+		<li class="collection-item">Username: {{user.username}}</li>
 		<!-- <span class="title">{{user.first_name}} {{user.last_name}}</span> -->
 		</li>
         <li class="collection-item">Email: <a ng-href="mailto:{{user.email}}">{{user.email}}</a></li>
         <li class="collection-item">Telephone#: <a ng-href="tel:+{{user.phone}}">{{user.phone}}</a></li>
-        <li class="collection-item">Username: {{user.username}}</li>
 	</ul>
 </div>
