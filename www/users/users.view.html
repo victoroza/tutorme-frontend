@@ -1,5 +1,10 @@
 <div>
-	<h3 class="center-align">User List</h3>
+
+	  <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+	    <a class="btn-floating btn-large red">
+	      <i class="large material-icons">mode_edit</i>
+	    </a>
+	  </div
 		<ul class="collection">
 			<a ng-repeat="u in users | orderBy: 'name'" ng-href="#/user_profile/{{u.username}}" class="collection-item avatar">
 				<img src="https://placeimg.com/640/480/people" alt="" class="circle">
