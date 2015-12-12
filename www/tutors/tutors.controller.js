@@ -10,29 +10,30 @@
 		var vm = this;
 		(function initController() {
 
-			var tutors = null;
-			var classInfo = $routeParams;
+			$scope.tutors = [];
+			$scope.classInfo = $routeParams;
 
-			// $scope.classes1 = null;
-			$scope.dataMajor = null;
-			var dataM = null;
 			
 			$http.get('http://tutorme-backend.herokuapp.com/tutor_api/tutor/?aClass__number=' + $routeParams.classNumber +'&format=json')
-				.then(function(data) {
-					console.log(data.data);
-					$scope.tutors = data.data;
-					$scope.schoolId = $routeParams.schoolId;
-					$scope.classMajor = $routeParams.classMajor;
-					$scope.classNumber = $routeParams.classNumber;
-				});
-		})();
+				.then(function(response) {
+					setTutors(response.data);
+				}); //end get
+			
+			function setTutors(tutorList) {
+				$.each(tutorList, function(i, t) {
+					$http.get('http://tutorme-backend.herokuapp.com/tutor_api/users/' + t.user + '/?format=json').then(function(response) {
+						setTutorInfo(response.data);
+					}); //end get
+				}); //end foreach
+			}
 
-		function populateData() {
-			vm.dataLoading = true;
-			$http.get('http://tutorme-backend.herokuapp.com/tutor_api/classes/?aClass__number=' + $routeParams.classNumber + '&format=json').then(function(data) {
-				$scope.tutors = data.data;
-			});
-		};
-	}
+			function setTutorInfo(userInfo) {
+				$scope.tutors.push(userInfo);
+			}
+
+
+		})(); //end initController
+
+	} //end TutorController
 
 })();
