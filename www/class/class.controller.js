@@ -15,10 +15,11 @@
             $http.get('http://tutorme-backend.herokuapp.com/tutor_api/classes/?school__name=' + $routeParams.schoolId +'&format=json').then(function(data) {
                 console.log(data.data);
                 $scope.classes1 = data.data;
+                $scope.schoolId = $routeParams.schoolId;
             });
-            classGetService.then(function(data){
-                console.log(data);
-            });
+            // classGetService.then(function(data){
+            //     console.log(data);
+            // });
             // $http.get('http://tutorme-backend.herokuapp.com/tutor_api/classes/?school__name=' + $routeParams.schoolId +'&format=json').then(function(data) {
             //     console.log(data.data);
             //     $scope.classes1 = data.data;

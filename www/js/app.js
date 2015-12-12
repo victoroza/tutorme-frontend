@@ -106,6 +106,12 @@ document.addEventListener("app.Ready", onAppReady, false) ;
                 controllerAs: 'vm'
             })
 
+            .when('/tutors/:schoolId/:classMajor/:classNumber', {
+                controller: 'TutorController',
+                templateUrl: 'tutors/tutors.view.html',
+                controllerAs: 'vm'
+            })
+
 
             .otherwise({ redirectTo: '/login' });
     }

@@ -1,0 +1,10 @@
+<div>
+	<h3 class="center-align">Tutor List for {{classMajor}}{{classNumber}}</h3>
+	<h5>Please select a tutor:</h5>
+		<ul class="collection">
+			<a ng-repeat="t in tutors | orderBy: 'username'" ng-href="#/register" class="collection-item">
+				<span class="title">{{t.user}}</span>
+			</a>
+		</ul>
+	</div>
+</div>
