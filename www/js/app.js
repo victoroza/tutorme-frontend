@@ -65,7 +65,7 @@ document.addEventListener("app.Ready", onAppReady, false) ;
     function config($routeProvider, $locationProvider) {
         $routeProvider
             .when('/', {
-                // controller: 'HomeController',
+                controller: 'HomeController',
                 templateUrl: 'home/home.view.html',
                 controllerAs: 'vm'
             })
@@ -115,7 +115,7 @@ document.addEventListener("app.Ready", onAppReady, false) ;
         // keep user logged in after page refresh
         if (!localStorage.token) {
             console.log("HERE");
-            $location.path('/login');
+            $location.path('/');
             return;
         }
         $rootScope.globals = $cookieStore.get('globals') || {};
@@ -138,7 +138,7 @@ document.addEventListener("app.Ready", onAppReady, false) ;
             // }
             if(!localStorage.token){
                 console.log("no token");
-                $location.path('/login');
+                $location.path('/');
             } else {
                 console.log("have token");
                 // $location.path('/users');
