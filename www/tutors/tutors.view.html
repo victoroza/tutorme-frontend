@@ -1,9 +1,9 @@
 <div>
-	<h3 class="center-align">Tutor List for {{classMajor}}{{classNumber}}</h3>
+	<h3 class="center-align">Tutor List for {{classInfo.classMajor}}{{classInfo.classNumber}}</h3>
 	<h5>Please select a tutor:</h5>
 		<ul class="collection">
-			<a ng-repeat="t in tutors | orderBy: 'username'" ng-href="#/register" class="collection-item">
-				<span class="title">{{t.user}}</span>
+			<a ng-repeat="t in tutors | orderBy:'first_name'" ng-href="#/register" class="collection-item">
+				<span class="title">{{t.first_name}} {{t.last_name}}</span>
 			</a>
 		</ul>
 	</div>
