@@ -126,6 +126,12 @@ document.addEventListener("app.Ready", onAppReady, false) ;
                 controllerAs: 'vm'
             })
 
+            .when('/makeAppt/:tutorId/:classId', {
+                controller: 'MakeApptController',
+                templateUrl: 'appointment/makeAppt.view.html',
+                controllerAs: 'vm'
+            })
+
             .otherwise({ redirectTo: '/login' });
     }
 

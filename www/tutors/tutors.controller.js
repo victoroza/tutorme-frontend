@@ -15,9 +15,6 @@
             $http.get('http://tutorme-backend.herokuapp.com/tutor_api/tutor/?aClass__number=' + $routeParams.classNumber +'&format=json').then(function(data) {
                 console.log(data.data);
                 $scope.tutors = data.data;
-                $scope.schoolId = $routeParams.schoolId;
-                $scope.classMajor = $routeParams.classMajor;
-                $scope.classNumber = $routeParams.classNumber;
             });
         })();
 
