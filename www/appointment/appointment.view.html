@@ -1,0 +1,15 @@
+<div>
+	<h3 class="center-align">Appointment List</h3>
+	<h5 class="center-align">Here are your appointments</h5>
+		<ul class="collection">
+			<a ng-repeat="a in appointments | orderBy: 'time'" class="collection-item avatar">
+				<img src="http://content.sportslogos.net/logos/30/855/full/hidblvd6ghdf4qkqanjth60rf.gif" alt="" class="circle">
+				<span class="title">Tutor: {{a.tutor}}</span>
+				<p>Tutee: {{a.tutee}}</p>
+				<p>Location: {{a.location}}</p>
+				<p>Time: {{a.time}} </p>
+				<p>Notes: {{a.notes}}</p>
+			</a>
+		</ul>
+	</div>
+</div>
