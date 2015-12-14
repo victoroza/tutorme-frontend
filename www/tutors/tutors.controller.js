@@ -12,7 +12,7 @@
 
 			$scope.tutors = [];
 			$scope.classInfo = $routeParams;
-			$scope.classId = $routeParams.classNumber;
+			$scope.classId = $routeParams.classId;
 
 			
 			$http.get('http://tutorme-backend.herokuapp.com/tutor_api/tutor/?aClass__number=' + $routeParams.classNumber +'&format=json')
