@@ -1,15 +1,25 @@
 <div>
 	<h3 class="center-align">Appointment List</h3>
-	<h5 class="center-align">Here are your appointments</h5>
+	<h5 class="left-align">Here are your appointments as a tutor:</h5>
 		<ul class="collection">
-			<a ng-repeat="a in appointments | orderBy: 'time'" class="collection-item avatar">
-				<img src="http://content.sportslogos.net/logos/30/855/full/hidblvd6ghdf4qkqanjth60rf.gif" alt="" class="circle">
+			<a ng-repeat="a in appointments_as_tutor | orderBy: 'time'" class="collection-item avatar">
+				<img src="https://du1ux2871uqvu.cloudfront.net/sites/default/files/file/Grad%20Cap%20Icon.gif" alt="" class="circle">
 				<span class="title">Tutor: {{a.tutor}}</span>
 				<p>Tutee: {{a.tutee}}</p>
 				<p>Location: {{a.location}}</p>
-				<p>Time: {{a.time}} </p>
+				<p>Time: {{a.appointments_as_tutor_time}} </p>
 				<p>Notes: {{a.notes}}</p>
 			</a>
 		</ul>
-	</div>
+	<h5 class="left-align">Here are your appointments as a tutee:</h5>
+		<ul class="collection">
+			<a ng-repeat="a in appointments_as_tutee | orderBy: 'time'" class="collection-item avatar">
+				<img src="https://du1ux2871uqvu.cloudfront.net/sites/default/files/file/Think%20Icon.gif" alt="" class="circle">
+				<span class="title">Tutor: {{a.tutor}}</span>
+				<p>Tutee: {{a.tutee}}</p>
+				<p>Location: {{a.location}}</p>
+				<p>Time: {{a.appointments_as_tutor_time}} </p>
+				<p>Notes: {{a.notes}}</p>
+			</a>
+		</ul>
 </div>

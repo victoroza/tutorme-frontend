@@ -44,7 +44,7 @@
 			$http.get('http://tutorme-backend.herokuapp.com/tutor_api/users/'+ $routeParams.userId +'?format=json', config).then(function(data) {
 				console.log("got to populateData editProfile");
 				$scope.user = data.data;
-		});
+			});
 		};
 
 		function update() {
@@ -71,10 +71,22 @@
 						error = error + k + " is input incorrectly " + v[0] +'\n';
 					});
 					alert(error);
+
 					vm.dataLoading = false;
 					// response.data
 				}
 			);
+		};
+
+		$scope.stopTutoring = function(id) {
+			$http.get('http://tutorme-backend.herokuapp.com/tutor_api/tutor/?aClass__id=' + id + '&user__username=' + localStorage.username + '&format=json')
+				.then(function(response) {
+					deleteTutor(response.data);
+				});
+		}
+
+		function deleteTutor(tutor) {
+			$http.delete('http://tutorme-backend.herokuapp.com/tutor_api/tutor/' + tutor[0].id);
 		};
 	}
 })();

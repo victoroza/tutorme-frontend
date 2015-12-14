@@ -114,7 +114,7 @@ document.addEventListener("app.Ready", onAppReady, false) ;
                 controllerAs: 'vm'
             })
 
-            .when('/tutors/:schoolId/:classMajor/:classNumber', {
+            .when('/tutors/:schoolId/:classMajor/:classNumber/:classId', {
                 controller: 'TutorController',
                 templateUrl: 'tutors/tutors.view.html',
                 controllerAs: 'vm'

@@ -2,13 +2,14 @@
 <div>
 	<h3 class="center-align">Class List</h3>
 	<h5>Please select the class you want to be tutored in:</h5>
-	<ul class="collection">
-		<a ng-repeat="c in classes1 | orderBy: 'major'" ng-href="#/tutors/{{schoolId}}/{{c.major}}/{{c.number}}/{{c.cid}}" class="collection-item">
-			<span class="title">{{c.number}}</span>
-			<p>Major: {{c.major}}</p>
-			<p>School: {{schoolId}}</p>
-		</a>
-	</ul>
+		<ul class="collection">
+			<a ng-repeat="c in classes1 | orderBy: ['major', 'number']" ng-href="#/tutors/{{schoolId}}/{{c.major}}/{{c.number}}/{{c.id}}" class="collection-item">
+				<span class="title">{{c.number}}</span>
+				<p>Major: {{c.major}}</p>
+				<p>School: {{schoolId}}</p>
+			</a>
+		</ul>
+	</div>
 </div>
 <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
 	<a class="btn-floating btn-large amber darken-4" ng-click = "open()">

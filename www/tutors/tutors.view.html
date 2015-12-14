@@ -6,5 +6,18 @@
 				<span class="title">{{t.first_name}} {{t.last_name}}</span>
 			</a>
 		</ul>
-	</div>
+	<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+		<a class="btn-floating btn-large amber darken-4" ng-click="addToTutor()">
+			<i class="large material-icons">add</i>
+		</a>
+    </div>
+    <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>ERROR</h4>
+      <p>Already a tutor for {{classInfo.classMajor}}{{classInfo.classNumber}}!</p>
+    </div>
+    <div class="modal-footer">
+      <a class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
 </div>
