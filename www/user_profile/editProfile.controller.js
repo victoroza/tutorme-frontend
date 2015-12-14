@@ -44,7 +44,7 @@
 			$http.get('http://tutorme-backend.herokuapp.com/tutor_api/users/'+ $routeParams.userId +'?format=json', config).then(function(data) {
 				console.log("got to populateData editProfile");
 				$scope.user = data.data;
-			});
+		});
 		};
 
 		function update() {
@@ -58,8 +58,23 @@
 				password: vm.password,
 				username: localStorage.username,
 				picture: vm.picture
-			})
-		};
+			}).then(function(response){
+				console.log(response.status);
+				if(response.status==200){
 
+				}
+			}, function(response){
+					console.log(response.data);
+					var data = response.data;
+					var error = "";
+					$.each(data, function(k, v) {
+						error = error + k + " is input incorrectly " + v[0] +'\n';
+					});
+					alert(error);
+					vm.dataLoading = false;
+					// response.data
+				}
+			);
+		};
 	}
 })();

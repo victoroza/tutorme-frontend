@@ -50,32 +50,31 @@
 						<input id="password" type="password" class="validate" ng-model="vm.password" required>
 						<label for="password">Password</label>
 					</div>
-
-					<form action="#">
-						<p>
-							<input type="checkbox" id = "is_staff" ng-model="vm.is_staff"/>
-							<label for="is_staff">Is staff member?</label>
-						</p>
-
-						<p>
-							<input type="checkbox" id = "is_active" ng-model="vm.is_active"/>
-							<label for="is_active">Is active member?</label>
-						</p>
-
-						<p>
-							<input type="checkbox" id = "is_superuser" ng-model="vm.is_superuser"/>
-							<label for="is_superuser">Is super user?</label>
-						</p>
-					</form>
-
 					<div class="form-actions">
+						<form action="#">
+							<p>
+								<input type="checkbox" id = "is_staff" ng-model="vm.is_staff"/>
+								<label for="is_staff">Is staff member?</label>
+							</p>
+
+							<p>
+								<input type="checkbox" id = "is_active" ng-model="vm.is_active"/>
+								<label for="is_active">Is active member?</label>
+							</p>
+
+							<p>
+								<input type="checkbox" id = "is_superuser" ng-model="vm.is_superuser"/>
+								<label for="is_superuser">Is super user?</label>
+							</p>
+						</form>
+
 						<div class="row">
 							<button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn-large waves-effect waves-light amber darken-4 col s12 align-center">Confirm
-								<i class="material-icons right">send</i>
 							</button>
 						</div>
 					</div>
-				</div>
+				</form>
 			</div>
 		</div>
+	</div>
 </div>

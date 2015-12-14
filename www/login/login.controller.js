@@ -22,11 +22,9 @@
 				if (response.status==200) {
 					AuthenticationService.SetCredentials(vm.username, vm.password);
 					$location.path('/users');
-				} else {
-					console.log(response);
-					// FlashService.Error(response.message);
+				}else{
 					vm.dataLoading = false;
-					$location.path('/login');
+					alert("Invalid username or password");
 				}
 			});
 		};
