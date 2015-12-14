@@ -12,3 +12,7 @@ ul.side-nav li:last-child {
 	bottom: 0;
 	width: 100%;
 }
+#appointment-icon{
+	line-height: 20px;
+	padding-top: 18px;
+}
