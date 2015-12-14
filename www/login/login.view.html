@@ -23,17 +23,20 @@
 					<i class="material-icons right">assignment_ind</i>
 				</a>
 			</div>
-			<div ng-if="vm.dataLoading" class="preloader-wrapper small active center-align">
-				<div class="spinner-layer spinner-green-only">
-					<div class="circle-clipper left">
-						<div class="circle"></div>
-					</div><div class="gap-patch">
-						<div class="circle"></div>
-					</div><div class="circle-clipper right">
-						<div class="circle"></div>
-					</div>
-				</div>
+			<div ng-if="vm.dataLoading" class="progress">
+				<!-- <div class="progress"> -->
+			      	<div class="indeterminate"></div>
+			  	<!-- </div> -->
 			</div>
 		</div>
+		<div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>ERROR</h4>
+      <p>Invalid username or password</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
 	</form>
 </div>

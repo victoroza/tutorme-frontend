@@ -35,6 +35,9 @@ function onAppReady() {
     // }
     navigator.splashscreen.hide() ;
     $(".button-collapse").sideNav();
+    if (cordova.platformId == 'android') {
+    StatusBar.backgroundColorByHexString("#CF4800");
+}
 }
 document.addEventListener("app.Ready", onAppReady, false) ;
 // document.addEventListener("deviceready", onAppReady, false) ;
