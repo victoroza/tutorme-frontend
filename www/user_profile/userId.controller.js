@@ -7,6 +7,10 @@
 
     UserIdController.$inject = ['$location', 'AuthenticationService', '$scope', '$http', '$routeParams'];
     function UserIdController($location, AuthenticationService, $scope, $http, $routeParams) {
+        // if(localStorage.is_superuser || localStorage.username == $routeParams.userId){
+        //   console.log("swap to admin");
+        //   $location.path('/user_profile_edit/' + $routeParams.userId);
+        // }
         var config = { 'headers': {'Authorization': 'Token ' + localStorage.token}};
         var vm = this;
         console.log("getting user profile");
