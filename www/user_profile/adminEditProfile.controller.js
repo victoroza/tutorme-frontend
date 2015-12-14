@@ -15,14 +15,14 @@
              $http.get('http://tutorme-backend.herokuapp.com/tutor_api/users/'+ $routeParams.userId +'?format=json', config).then(function(data) {
                 $scope.user = data.data;
                 console.log($scope.user);
-                if($scope.user.is_superuser == "true"){
+                if($scope.user.is_superuser == true){
                   $('#is_superuser').attr('checked', 'true');
                 }
-                if($scope.user.is_active){
+                if($scope.user.is_active == true){
                   console.log("is active");
                   $('#is_active').attr('checked', 'true');
                 }
-                if($scope.user.is_staff== "true"){
+                if($scope.user.is_staff == true){
                   $('#is_staff').attr('checked', 'true');
                 }
             });
