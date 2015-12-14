@@ -1,16 +1,18 @@
-<link rel="stylesheet" href="users/users.css">
+<div>
+	<h3 class="center-align">User List</h3>
+	<ul class="collection">
+		<a ng-repeat="u in users | orderBy: 'name'" ng-href="#/user_profile/{{u.username}}" class="collection-item avatar">
+			<img ng-src="{{u.picture}}" alt="" class="circle">
+			<span class="title black-text">{{u.first_name}} {{u.last_name}} </span>
+			<p class = "black-text">Username: {{u.username}}</p>
+		</a>
+	</ul>
+</div>
 <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
 	<a class="btn-floating btn-large red" href = "#modal1">
 		<i class="large material-icons">mode_edit</i>
 	</a>
 </div>
-<ul class="collection">
-	<a ng-repeat="u in users | orderBy: 'name'" ng-href="#/user_profile/{{u.username}}" class="collection-item avatar">
-		<img src="https://placeimg.com/640/480/people" alt="" class="circle">
-		<span class="title black-text">{{u.first_name}} {{u.last_name}} </span>
-		<p class = "black-text">Username: {{u.username}}</p>
-	</a>
-</ul>
 <div id="modal1" class="modal">
 	<div class="modal-content">
 		<h4>Modal Header</h4>

@@ -114,15 +114,21 @@ document.addEventListener("app.Ready", onAppReady, false) ;
                 controllerAs: 'vm'
             })
 
-            // .when('/user_profile_edit/:userId', {
-            //     controller: 'EditProfileController',
-            //     templateUrl: 'user_profile_edit/editProfile.view.html',
-            //     controllerAs: 'vm'
-            // })
+            .when('/tutors/:schoolId/:classMajor/:classNumber', {
+                controller: 'TutorController',
+                templateUrl: 'tutors/tutors.view.html',
+                controllerAs: 'vm'
+            })
 
             .when('/appointment', {
                 controller: 'AppointmentController',
                 templateUrl: 'appointment/appointment.view.html',
+                controllerAs: 'vm'
+            })
+
+            .when('/makeAppt/:tutorId/:classId', {
+                controller: 'MakeApptController',
+                templateUrl: 'appointment/makeappt.view.html',
                 controllerAs: 'vm'
             })
 

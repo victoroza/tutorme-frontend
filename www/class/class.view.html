@@ -2,10 +2,10 @@
 	<h3 class="center-align">Class List</h3>
 	<h5>Please select the class you want to be tutored in:</h5>
 		<ul class="collection">
-			<a ng-repeat="c in classes1 | orderBy: 'major'" ng-href="#/register" class="collection-item">
+			<a ng-repeat="c in classes1 | orderBy: 'major'" ng-href="#/tutors/{{schoolId}}/{{c.major}}/{{c.number}}" class="collection-item">
 				<span class="title">{{c.number}}</span>
 				<p>Major: {{c.major}}</p>
-				<p>School: {{c.school}}</p>
+				<p>School: {{schoolId}}</p>
 			</a>
 		</ul>
 	</div>

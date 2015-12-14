@@ -1,19 +1,19 @@
 (function () {
-    'use strict';
+	'use strict';
 
-    angular
-        .module('app')
-        .controller('RegisterController', RegisterController);
+	angular
+	.module('app')
+	.controller('RegisterController', RegisterController);
 
-    RegisterController.$inject = ['$location', '$http'];
-    function RegisterController($location, $http) {
-        var vm = this;
+RegisterController.$inject = ['$location', '$http'];
+function RegisterController($location, $http) {
+	var vm = this;
 
-        vm.register = register;
+	vm.register = register;
 
-        (function initController() {
-            // reset login status
-        })();
+	(function initController() {
+		// reset login status
+	})();
 
         function register() {
             vm.dataLoading = true;
