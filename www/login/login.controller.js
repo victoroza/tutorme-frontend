@@ -21,7 +21,7 @@
 			AuthenticationService.Login(vm.username, vm.password, function (response) {
 				if (response.status==200) {
 					AuthenticationService.SetCredentials(vm.username, vm.password);
-					$location.path('/users');
+					$location.path('/schools');
 				}else{
 					vm.dataLoading = false;
 					alert("Invalid username or password");
