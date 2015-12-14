@@ -1,1 +1,1 @@
-web: pushd /www; python -m SimpleHTTPServer; popd
+web: pushd www; python -m SimpleHTTPServer; popd
