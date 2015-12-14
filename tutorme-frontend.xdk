@@ -5,7 +5,7 @@
       "projectTypeName": "com.intel.xdk.projecttype.jsapp",
       "src": "jsapp/template-blank-cordova-project-lite/sample.zip",
       "projectGuid": "e1008c0c-6945-4950-a729-c566de383b6f",
-      "lastModifiedDate": 1450080186521,
+      "lastModifiedDate": 1450118135247,
       "creationDate": 1449542460913
     },
     "XDK-app-designer": "false",
@@ -112,7 +112,7 @@
           "android-installLocation": "auto"
         },
         "isActive_": true,
-        "appName_": "tutorme-frontend",
+        "appName_": "TutorMe",
         "appID_": "xdk.intel.cordova.template.lite",
         "appAccess_": {
           "mode": "legacy",
@@ -122,15 +122,49 @@
           "intents": [],
           "navigation": []
         },
-        "icons_": [],
-        "splashes_": [],
+        "icons_": [
+          {
+            "relPath": "ic_launcher_mdpi.png",
+            "density": "mdpi",
+            "height": 48,
+            "width": 48
+          },
+          {
+            "relPath": "ic_launcher_hdpi.png",
+            "density": "hdpi",
+            "height": 72,
+            "width": 72
+          },
+          {
+            "relPath": "ic_launcher_xhpi.png",
+            "density": "xhdpi",
+            "height": 96,
+            "width": 96
+          }
+        ],
+        "splashes_": [
+          {
+            "relPath": "splash_xhdpi.png",
+            "density": "xhdpi",
+            "height": 960,
+            "width": 720,
+            "orientation": "portrait"
+          },
+          {
+            "relPath": "splash_hdpi.png",
+            "density": "ldpi",
+            "height": 426,
+            "width": 320,
+            "orientation": "portrait"
+          }
+        ],
         "addlPermissions_": "",
         "excludedLibraries_": "",
         "cordovaCLIVersion_": "5.1.1",
         "crosswalkVersion_": "14",
-        "appVersion_": "0.0.1",
-        "appDescription_": "Universal init code for Intel XDK and Cordova device ready detection, as well as within browser.",
-        "appAuthor_": "Intel XDK",
+        "appVersion_": "1.0.0",
+        "appDescription_": "The tutoring app for you.",
+        "appAuthor_": "The Minnows",
         "appVersionCode_": "1"
       },
       "iOS": {
