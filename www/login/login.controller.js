@@ -23,8 +23,8 @@
 					AuthenticationService.SetCredentials(vm.username, vm.password);
 					$location.path('/schools');
 				}else{
+					$('#modal1').openModal();
 					vm.dataLoading = false;
-					alert("Invalid username or password");
 				}
 			});
 		};

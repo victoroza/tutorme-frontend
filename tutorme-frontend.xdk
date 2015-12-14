@@ -5,7 +5,7 @@
       "projectTypeName": "com.intel.xdk.projecttype.jsapp",
       "src": "jsapp/template-blank-cordova-project-lite/sample.zip",
       "projectGuid": "e1008c0c-6945-4950-a729-c566de383b6f",
-      "lastModifiedDate": 1449716850413,
+      "lastModifiedDate": 1450080186521,
       "creationDate": 1449542460913
     },
     "XDK-app-designer": "false",
@@ -20,7 +20,7 @@
       {
         "id": "cordova-plugin-statusbar",
         "name": "StatusBar",
-        "version": "1.0.0",
+        "version": "2.0.0",
         "originType": "cordova.io",
         "origin": "cordova-plugin-statusbar",
         "gitref": "",
@@ -33,7 +33,7 @@
         "description": "Cordova StatusBar Plugin",
         "data": {},
         "dependedBy": [],
-        "checksum": "b4e7aac6"
+        "checksum": "b92cbbef"
       },
       {
         "id": "cordova-plugin-device",
