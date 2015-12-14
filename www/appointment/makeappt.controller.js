@@ -18,26 +18,55 @@ function MakeApptController($location, AuthenticationService, $scope, $http, $ro
         });
 	})();
         function makeAppt() {
+            var months = {
+                'January' : '01',
+                'February' : '02',
+                'March' : '03',
+                'April' : '04',
+                'May' : '05',
+                'June' : '06',
+                'July' : '07',
+                'August' : '08',
+                'September' : '09',
+                'October' : '10',
+                'November' : '11',
+                'December' : '12'
+            }
+
              console.log(vm.date);
-        //     vm.dataLoading = true;
-        //     console.log(vm);
-        //     $http.post('http://tutorme-backend.herokuapp.com/tutor_api/appointment/', {
-        //         aClass : $routeParams.classId,
-        //         tutee : localStorage.username,
-        //         tutor: $routeParams.tutorId,
-        //         location : vm.location_in,
-        //         notes : vm.notes,
-        //         times : vm.date
-        //     })
-        //         .then(function(response) {
-        //             // alert(response.status);
-        //             console.log(response);
-        //             console.log(response.data);
-        //             $location.path('/login');
-        //         },
-        //         function(response) {
-        //             // alert(response.status);
-        //         });
+             console.log(vm.time);
+             var date_array = vm.date.split(/[\s,]+/);
+             var time_array = vm.time.split(":");
+             console.log(months[(date_array[1])]);
+             console.log(time_array);
+             console.log(date_array);
+             vm.fullDate = date_array[2] + '-' + months[(date_array[1])] + '-' + date_array[0] + 'T' + vm.time + ':00Z';
+            vm.dataLoading = true;
+            $http.get('http://tutorme-backend.herokuapp.com/tutor_api/users/' + $routeParams.tutorId).then(function(data) {
+                $scope.appointments_as_tutor= data.data;
+                postAppt(data.data['id']);
+            });
+        };
+
+        function postAppt(tutor_id) {
+            $http.post('http://tutorme-backend.herokuapp.com/tutor_api/appointments/', {
+                aClass : $routeParams.classId,
+                tutee : localStorage.id,
+                tutor: tutor_id,
+                location : vm.location_in,
+                notes : vm.notes,
+                time : vm.fullDate
+            })
+                .then(function(response) {
+                    // alert(response.status);
+                    console.log(response);
+                    console.log(response.data);
+                    $location.path('/appointment');
+                },
+                function(response) {
+                    alert("There is an error in the input");
+                    // alert(response.status);
+                });
         };
     }
 })();

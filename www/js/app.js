@@ -128,7 +128,7 @@ document.addEventListener("app.Ready", onAppReady, false) ;
 
             .when('/makeAppt/:tutorId/:classId', {
                 controller: 'MakeApptController',
-                templateUrl: 'appointment/makeAppt.view.html',
+                templateUrl: 'appointment/makeappt.view.html',
                 controllerAs: 'vm'
             })
 
