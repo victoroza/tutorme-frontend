@@ -10,6 +10,10 @@
 		var vm = this;
 		(function initController() {
 			// $scope.classes1 = null;
+			if(localStorage.is_staff == false && localStorage.is_superuser == false){
+				console.log("CRY");
+				$('.fixed-action-btn').attr("display","none");
+			}
 			$scope.dataMajor = null;
 			var dataM = null;
 			$http.get('http://tutorme-backend.herokuapp.com/tutor_api/classes/?school__name=' + $routeParams.schoolId +'&format=json').then(function(data) {
