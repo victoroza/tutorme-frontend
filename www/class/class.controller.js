@@ -25,6 +25,22 @@
 				$scope.classes1 = data.data;
 			});
 		};
+
+		$scope.open = function open(){
+			$('#modal1').openModal();
+		}
+
+		$scope.addClass = function(){
+			vm.dataLoading = true;
+			console.log("sup");
+			console.log($routeParams);
+			$http.post("http://tutorme-backend.herokuapp.com/tutor_api/classes/", {
+				number: vm.classNumber,
+				major: vm.major,
+				school: $routeParams.schoolId
+			});
+		}
+
 	}
 
 })();

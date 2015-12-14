@@ -1,3 +1,4 @@
+<div ng-controller="ClassController as vm">
 <div>
 	<h3 class="center-align">Class List</h3>
 	<h5>Please select the class you want to be tutored in:</h5>
@@ -11,7 +12,36 @@
 	</div>
 </div>
 <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
-	<a class="btn-floating btn-large amber darken-4">
+	<a class="btn-floating btn-large amber darken-4" ng-click = "open()">
 		<i class="large material-icons">mode_edit</i>
 	</a>
+</div>
+<div id = "modal1" class = "modal">
+	<div class = "modal-content">
+		<div class = "row">
+			<div class="col s12 m7">
+				<div class="card">
+					<form name="form" ng-submit="vm.addClass()" role="form" class="col s12">
+
+						<div class="input-field">
+							<input id="classNumber" type="text" class="validate" ng-model="vm.classNumber" required>
+							<label for="classNumber">Class Number</label>
+						</div>
+
+						<div class="input-field">
+							<input id="major" type="text" class="validate" ng-model="vm.major" required >
+							<label for="major">Major</label>
+						</div>
+						<div class="form-actions">
+							<div class="row">
+								<button ng-click="addClass()" ng-disabled="form.$invalid || vm.dataLoading" class="btn-large waves-effect waves-light amber darken-4 col s12 align-center">Confirm
+								</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 </div>
