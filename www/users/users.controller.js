@@ -23,6 +23,5 @@
 				$scope.users = data.data;
 			});
 		};
-
 	}
 })();

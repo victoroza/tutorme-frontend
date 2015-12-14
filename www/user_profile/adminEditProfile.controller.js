@@ -23,6 +23,22 @@
                 $scope.user = data.data;
             });
         };
+
+        function update(){
+          vm.dataLoading = true;
+          console.log(vm);
+          $http.put('http://tutorme-backend.herokuapp.com/tutor_api/users/' + $routeParams.userId, {
+              first_name: vm.first_name,
+              last_name: vm.last_name,
+              email: vm.email,
+              phone: vm.phone,
+              is_staff: vm.is_staff,
+              is_superuser: vm.is_user,
+              is_active: vm.is_active,
+              password: vm.password,
+              username: localStorage.username
+            })
+        };
     }
 
 })();
