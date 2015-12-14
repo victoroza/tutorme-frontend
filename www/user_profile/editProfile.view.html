@@ -52,9 +52,16 @@
 
 
 					<div>
-						Tutor for:
-						<ul ng-repeat="c in classes | orderBy: 'major'">
-							<li>{{c.major}}{{c.number}}
+						<h5>Tutor for:</h5>
+						<ul class="collection" ng-repeat="c in classes | orderBy: 'major'">
+							<li class="collection-item">
+								<div>
+									{{c.major}}{{c.number}}
+									<a ng-href="#/users" ng-click="stopTutoring(c.id)" class="secondary-content">
+										<i class="material-icons">not_interested</i>
+									</a>
+								</div>
+							</li>
 						</ul>
 					</div>
 
