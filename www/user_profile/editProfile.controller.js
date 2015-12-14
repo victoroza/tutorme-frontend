@@ -51,18 +51,18 @@
 			vm.dataLoading = true;
 			console.log(vm);
 			$http.put('http://tutorme-backend.herokuapp.com/tutor_api/users/' + $routeParams.userId, {
-				first_name: vm.first_name,
-				last_name: vm.last_name,
-				email: vm.email,
-				phone: vm.phone,
-				password: vm.password,
-				username: localStorage.username,
-				picture: vm.picture
-			}).then(function(response){
-				console.log(response.status);
-				if(response.status==200){
+					first_name: vm.first_name,
+					last_name: vm.last_name,
+					email: vm.email,
+					phone: vm.phone,
+					password: vm.password,
+					username: localStorage.username,
+					picture: vm.picture
+				}).then(function(response){
+						console.log(response.status);
+						if(response.status==200){
 
-				}
+						}
 			}, function(response){
 					console.log(response.data);
 					var data = response.data;
